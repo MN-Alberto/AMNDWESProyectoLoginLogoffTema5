@@ -1,11 +1,19 @@
 <?php
+
+        if(empty(session_start())){
+        session_destroy();
+        header("Location: ../indexLoginLogoff.php");
+        exit;
+        }
+        
         if(isset($_REQUEST['Cancelar'])){
         header("Location: ./inicioPrivado.php");
         exit;
     }
         if(isset($_REQUEST['cerrar'])){
-    header("Location: ../indexLoginLogoff.php");
-    exit;
+        session_destroy();
+        header("Location: ../indexLoginLogoff.php");
+        exit;
     }
 ?>
 <!DOCTYPE html>
@@ -55,10 +63,6 @@
             left: 0;
             width: 100%;
         }
-	main{
-	text-align:center;
-	justify-content:center;
-	}
         a{
             text-decoration: none;
             color:purple;
@@ -115,6 +119,7 @@
             width: 100px;
             height: 30px;
             border-radius: 10px;
+            cursor: pointer;
         }
     </style>
 </head>

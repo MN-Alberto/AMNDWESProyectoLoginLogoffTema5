@@ -4,24 +4,24 @@
         exit;
     }
     
-    if(empty($_COOKIE['language'])){
-        setcookie('language','ES',time() + 3600);
+    if(empty($_COOKIE['idioma'])){
+        setcookie('idioma','ES',time() + 3600);
     }
     
     if(isset($_REQUEST['español'])){
-        setcookie('language','ES',time() + 3600);
+        setcookie('idioma','ES',time() + 3600);
     }
     
     if(isset($_REQUEST['ingles'])){
-        setcookie('language','EN',time() + 3600);
+        setcookie('idioma','EN',time() + 3600);
     }
     
     if(isset($_REQUEST['portugues'])){
-        setcookie('language','PT',time() + 3600);
+        setcookie('idioma','PT',time() + 3600);
     }
     
     if(isset($_REQUEST['ruso'])){
-        setcookie('language','RU',time() + 3600);
+        setcookie('idioma','RU',time() + 3600);
     }
 ?>
 
@@ -122,6 +122,10 @@
             width: 100px;
             height: 30px;
             border-radius: 10px;
+            cursor: pointer;
+        }
+        .btn:active{
+            background-color: green;
         }
     </style>
 </head>
@@ -129,16 +133,16 @@
     <header>
         <img src="webroot/logo.png" alt="logo" height="100px"/>
         <h1><b>Inicio Público</b></h1>
-        <form action=<?php echo $_SERVER["PHP_SELF"];?> method="post" id="f1">
+        <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" id="f1">
             <input type="submit" id="Login" name="Login" value="Login">
         </form> 
         
         <h3>Idioma: </h3>
-        <form action=<?php echo $_SERVER["PHP_SELF"];?> method="post">
-            <input type="submit" name="español" id="español" value="Español">
-            <input type="submit" name="ingles" id="ingles" value="English">
-            <input type="submit" name="portugues" id="portugues" value="Português">
-            <input type="submit" name="ruso" id="ruso" value="Русский">
+        <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+            <input type="submit" name="español" id="español" class="btn" value="Español">
+            <input type="submit" name="ingles" id="ingles" class="btn" value="English">
+            <input type="submit" name="portugues" id="portugues" class="btn" value="Português">
+            <input type="submit" name="ruso" id="ruso" class="btn" value="Русский">
         </form>
         
     </header>
