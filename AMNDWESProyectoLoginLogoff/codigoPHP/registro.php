@@ -104,6 +104,7 @@
             width: 100px;
             height: 30px;
             border-radius: 10px;
+            cursor: pointer;
         }
     </style>
 </head>

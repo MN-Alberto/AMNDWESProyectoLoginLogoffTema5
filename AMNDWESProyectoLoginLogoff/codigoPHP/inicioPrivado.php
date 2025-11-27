@@ -1,9 +1,17 @@
 <?php
+    
+    if(empty(session_start())){
+    session_destroy();
+    header("Location: ../indexLoginLogoff.php");
+    exit;
+    }
+
     if(isset($_REQUEST['Aceptar'])){
     header("Location: ./detalle.php");
     exit;
     }
     if(isset($_REQUEST['cerrar'])){
+    session_destroy();
     header("Location: ../indexLoginLogoff.php");
     exit;
     }
@@ -109,6 +117,7 @@
             width: 100px;
             height: 30px;
             border-radius: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -123,37 +132,37 @@
     </header>
     
     <h2>Login Privado</h2>
+    
         <?php
-            if($_COOKIE["language"]=='ES'){
-           ?>
-        <p>Bienvenido al inicio de sesión privado.</p>
-        <?php
-            }
+            echo '<p>Bienvenido '.$_SESSION["usuarioDAWAMNAppLoginLogoff"]["descUsuario"].'</p>';
+            echo '<p>Esta es la '.$_SESSION["usuarioDAWAMNAppLoginLogoff"]["numConexiones"].' vez que se conecta</p>';
+            echo '<p>Usted se conectó por última vez el '.$_SESSION["usuarioDAWAMNAppLoginLogoff"]["ultimaConexion"].'</p>';
         ?>
         
         <?php
-            if($_COOKIE["language"]=='EN'){
-           ?>
-        <p>Welcome to the private login window.</p>
-        <?php
+            switch ($_COOKIE["idioma"]) {
+                case 'ES':
+                    echo '<p>Bienvenido al inicio de sesión privado.</p>';
+                    break;
+                
+                case 'EN':
+                    echo '<p>Welcome to the private login window.</p>';
+                    break;
+                
+                case 'PT':
+                    echo '<p>Bem-vindo ao login privado.</p>';
+                    break;
+                
+                case 'RU':
+                    echo '<p>Добро пожаловать в приватный вход</p>';
+                    break;
+                
+                default:
+                    echo '<p>Bienvenido al inicio de sesión privado.</p>';
+                    break;
             }
         ?>
-        
-        <?php
-            if($_COOKIE["language"]=='PT'){
-           ?>
-        <p>Bem-vindo ao login privado.</p>
-        <?php
-            }
-        ?>
-        
-        <?php
-            if($_COOKIE["language"]=='RU'){
-           ?>
-        <p>Добро пожаловать в приватный вход</p>
-        <?php
-            }
-        ?>
+    
     <footer>
         <h4>2025-26 IES LOS SAUCES. © Todos los derechos reservados.</h4>
         <p><a href="../../../AMNDWESProyectoDWES/indexProyectoDWES.php">Alberto Méndez.</a> Fecha de Actualización : 20-11-2025</p>
