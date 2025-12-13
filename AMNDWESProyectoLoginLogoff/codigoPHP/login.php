@@ -6,10 +6,10 @@
     }
     
     // Si el usuario da a registrarse, le lleva a la página de registro.
-    if(isset($_REQUEST['Registrarse'])){
-    header("Location: ./registro.php");
-    exit;
-    }
+    //if(isset($_REQUEST['Registrarse'])){
+    //header("Location: ./registro.php");
+    //exit;
+    //}
     
     session_start();
     

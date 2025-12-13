@@ -6,6 +6,12 @@
         exit;
         }
         
+        if(empty($_SESSION)){
+        session_destroy();
+        header("Location: ../indexLoginLogoff.php");
+        exit;
+        }
+        
         if(isset($_REQUEST['Cancelar'])){
         header("Location: ./inicioPrivado.php");
         exit;

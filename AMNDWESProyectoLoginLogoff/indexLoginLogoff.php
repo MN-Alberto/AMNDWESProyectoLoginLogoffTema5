@@ -62,6 +62,10 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            height: 555px;
+        }
+        main img{
+            height: 555px;
         }
         ul {
             list-style: none;
@@ -146,7 +150,11 @@
         </form>
         
     </header>
-
+    
+    <main>
+        <img src="arbol.PNG" alt="arbolNavegacion">
+    </main>
+    
     <footer>
         <h4>2025-26 IES LOS SAUCES. © Todos los derechos reservados.</h4>
         <p><a href="../../AMNDWESProyectoDWES/indexProyectoDWES.php">Alberto Méndez.</a> Fecha de Actualización : 20-11-2025</p>
