@@ -74,20 +74,27 @@
                     SQL;
             $consultaActualizacion=$miDB->prepare($actualizar);
             $consultaActualizacion->execute([':nomUsuario' => $_REQUEST['usuario']]);
+
+            date_default_timezone_set('Europe/Madrid');
+            
+            $oFechaActual = new DateTime();
             
             $usuarioConectado=[
                 'nomUsuario'=>$registro->T01_CodUsuario,
                 'descUsuario'=>$registro->T01_DescUsuario,
-                'ultimaConexion'=>$registro->T01_FechaHoraUltimaConexion,
-                'numConexiones'=>$registro->T01_NumConexiones
+                'ultimaConexionAnterior'=>$registro->T01_FechaHoraUltimaConexion,
+                'ultimaConexion' => $oFechaActual,
+                'numConexiones'=>$registro->T01_NumConexiones+1
             ];
             
             $_SESSION['usuarioDAWAMNAppLoginLogoff']=$usuarioConectado;
             
             header('Location: inicioPrivado.php');
+            exit;
         }
         else{
             header('Location: login.php');
+            exit;
         }
         
         }catch(PDOException $miException){
@@ -280,7 +287,7 @@
     <footer>
         <h4>2025-26 IES LOS SAUCES. © Todos los derechos reservados.</h4>
         <p><a href="../../../AMNDWESProyectoDWES/indexProyectoDWES.php">Alberto Méndez.</a> Fecha de Actualización : 20-11-2025</p>
-        <a href="https://github.com/MN-Alberto/AMNDWESProyectoTema5" target="_blank"><img src="../webroot/img.png" height="40px"/></a>
+        <a href="https://github.com/MN-Alberto/AMNDWESProyectoLoginLogoffTema5" target="_blank"><img src="../webroot/img.png" height="40px"/></a>
     </footer>
 </body>
 </html>

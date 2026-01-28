@@ -1,16 +1,12 @@
 <?php
 
-        if(empty(session_start())){
+    session_start();
+
+    if(!isset($_SESSION['usuarioDAWAMNAppLoginLogoff'])){
         session_destroy();
         header("Location: ../indexLoginLogoff.php");
         exit;
-        }
-        
-        if(empty($_SESSION)){
-        session_destroy();
-        header("Location: ../indexLoginLogoff.php");
-        exit;
-        }
+    }
         
         if(isset($_REQUEST['Cancelar'])){
         header("Location: ./inicioPrivado.php");
@@ -278,7 +274,7 @@
     <footer>
         <h4>2025-26 IES LOS SAUCES. © Todos los derechos reservados.</h4>
         <p><a href="../../../AMNDWESProyectoDWES/indexProyectoDWES.php">Alberto Méndez.</a> Fecha de Actualización : 20-11-2025</p>
-        <a href="https://github.com/MN-Alberto/AMNDWESProyectoTema5" target="_blank"><img src="../webroot/img.png" height="40px"/></a>
+        <a href="https://github.com/MN-Alberto/AMNDWESProyectoLoginLogoffTema5" target="_blank"><img src="../webroot/img.png" height="40px"/></a>
     </footer>
 </body>
 </html>

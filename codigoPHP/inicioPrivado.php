@@ -1,9 +1,11 @@
 <?php
+
+    session_start();
     
-    if(empty(session_start())){
-    session_destroy();
-    header("Location: ../indexLoginLogoff.php");
-    exit;
+    if(!isset($_SESSION['usuarioDAWAMNAppLoginLogoff'])){
+        session_destroy();
+        header("Location: ../indexLoginLogoff.php");
+        exit;
     }
 
     if(isset($_REQUEST['Aceptar'])){
@@ -134,9 +136,15 @@
     <h2>Login Privado</h2>
     
         <?php
+
+         if ($_SESSION['usuarioDAWAMNAppLoginLogoff']['numConexiones'] == 1) {
+            echo '<p>Bienvenido '.$_SESSION["usuarioDAWAMNAppLoginLogoff"]["descUsuario"].'</p>';
+            echo "<p>Esta es tu primera conexión</p>";
+        } else {
             echo '<p>Bienvenido '.$_SESSION["usuarioDAWAMNAppLoginLogoff"]["descUsuario"].'</p>';
             echo '<p>Esta es la '.$_SESSION["usuarioDAWAMNAppLoginLogoff"]["numConexiones"].' vez que se conecta</p>';
-            echo '<p>Usted se conectó por última vez el '.$_SESSION["usuarioDAWAMNAppLoginLogoff"]["ultimaConexion"].'</p>';
+            echo '<p>Usted se conectó por última vez el '.$_SESSION["usuarioDAWAMNAppLoginLogoff"]["ultimaConexionAnterior"].'</p>';
+        }
         ?>
         
         <?php
@@ -166,7 +174,7 @@
     <footer>
         <h4>2025-26 IES LOS SAUCES. © Todos los derechos reservados.</h4>
         <p><a href="../../../AMNDWESProyectoDWES/indexProyectoDWES.php">Alberto Méndez.</a> Fecha de Actualización : 20-11-2025</p>
-        <a href="https://github.com/MN-Alberto/AMNDWESProyectoTema5" target="_blank"><img src="../webroot/img.png" height="40px"/></a>
+        <a href="https://github.com/MN-Alberto/AMNDWESProyectoLoginLogoffTema5" target="_blank"><img src="../webroot/img.png" height="40px"/></a>
     </footer>
 </body>
 </html>
