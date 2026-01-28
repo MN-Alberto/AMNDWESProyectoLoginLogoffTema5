@@ -2,17 +2,17 @@
 /*
                 LOCAL
 
-
-                const RUTA = 'mysql:host=daw207.local.ieslossauces.es;dbname=DBAMNDWESProyectoLoginLogoff';
-                const USUARIO = 'userAMNDWESProyectoLoginLogoff';
-                const PASS = 'paso';
 */
+                const RUTA = 'mysql:host=localhost;dbname=dbamndwesproyectologinlogoff';
+                const USUARIO = 'root';
+                const PASS = '';
+
            /*
             * EXPLOTACIÓN
-            */
 
-              const RUTA = 'mysql:host=localhost;dbname=DBAMNDWESProyectoLoginLogoff';
-              const USUARIO = 'userDBAMNDWESProyectoLoginLogoff';
+
+              const RUTA = 'mysql:host=localhost;dbname=DBAMNDWESLoginLogoff';
+              const USUARIO = 'userDBAMNDWESLoginLogoff';
               const PASS = 'CD97ertvct$E';
-
+*/
 ?>
